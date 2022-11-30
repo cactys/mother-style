@@ -1,4 +1,9 @@
 {
+  "plugins": [
+    "prettier",
+    "unicorn",
+    "import"
+  ],
   "rules": {
     "func-names": [
       "error",
@@ -11,12 +16,23 @@
           "_id"
         ]
       }
-    ]
+    ],
+    "no-debugger": "off",
+    "no-console": 0
   },
   "extends": [
-    "airbnb-base"
+    "airbnb-base",
+    "prettier",
+    "prettier/@typescript-eslint"
   ],
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
   "env": {
-    "jest": true
+    "jest": true,
+    "es6": true,
+    "browser": true,
+    "node": true
   }
 }
