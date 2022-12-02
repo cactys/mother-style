@@ -30,20 +30,20 @@ mongoose.connect(
 
 app.use(requestLogger);
 
-// const start = async () => {
-//   try {
-sequelize.authenticate();
-sequelize.sync();
+const start = async () => {
+  try {
+    sequelize.authenticate();
+    sequelize.sync();
 
-app.listen(NODE_ENV === 'prodaction' ? PORT : port, () => {
-  console.log(`Сервер запущен: PORT=${PORT}`);
-});
-//   } catch (e) {
-//     console.log(e);
-//   }
-// };
+    app.listen(NODE_ENV === 'prodaction' ? PORT : port, () => {
+      console.log(`Сервер запущен: PORT=${PORT}`);
+    });
+  } catch (e) {
+    console.log(e);
+  }
+};
 
-// start();
+start();
 
 app.use(errorLogger);
 app.use(errors());
