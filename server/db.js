@@ -12,12 +12,12 @@ const {
 } = process.env;
 
 module.exports = new Sequelize(
-  NODE_ENV === 'prodaction' ? NAME_POSTGRES_DB : postgres.name,
-  NODE_ENV === 'prodaction' ? USER_POSTGRES_DB : postgres.user,
-  NODE_ENV === 'prodaction' ? PASSWORD_POSTGRES_DB : postgres.password,
-  {
-    dialect: 'postgres',
-    host: NODE_ENV === 'prodaction' ? HOST_POSTGRES_DB : postgres.host,
-    port: NODE_ENV === 'prodaction' ? PORT_POSTGRES_DB : postgres.port,
+  NODE_ENV === 'prodaction' ? NAME_POSTGRES_DB : postgres.name, // Название БД
+  NODE_ENV === 'prodaction' ? USER_POSTGRES_DB : postgres.user, // Пользователь БД
+  NODE_ENV === 'prodaction' ? PASSWORD_POSTGRES_DB : postgres.password, // Пароль БД
+  { // Объект
+    dialect: 'postgres', // Название объекта
+    host: NODE_ENV === 'prodaction' ? HOST_POSTGRES_DB : postgres.host, // Хост
+    port: NODE_ENV === 'prodaction' ? PORT_POSTGRES_DB : postgres.port, // Порт
   },
 );
